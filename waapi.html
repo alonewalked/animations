@@ -1,0 +1,42 @@
+<html class=" -webkit-">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex"><link rel="canonical" >
+<style>
+.dot {
+  animation: frames 2500ms ease-in-out 0ms infinite alternate forwards;
+}
+</style>
+</head>
+<body >
+<div class="dot">i'm dot</div>
+<p> i'm body </p>
+
+</body >
+<script type="text/javascript">
+
+var bodyplayer = document.body.animate(
+    [{'background': 'red'}, {'background': 'green'}, {'background': 'blue'}]
+    , 3000);
+var doDot = function(){
+    var elemdot = document.querySelector('.dot');
+    var frames = [
+        {"transform": 'rotate(0deg) translate(100px)'},
+        {"transform": 'rotate(360deg) translate(100px)'}
+    ];
+    var timing ={
+        duration: 2500,         //ms
+        delay: 0,               //ms
+        iterations: 10,   //1, 2, 3 ... Infinity
+        direction: 'alternate', //'normal', 'reverse'等
+        easing: 'ease-in-out',  //'linear', 'ease-in'等
+        fill: 'forwards',       //'backwards', 'both', 'none', 'auto'
+    };
+    elemdot.animate(frames, timing);
+}
+
+bodyplayer.onfinish = function(e){
+    doDot();
+}
+</script>
+</html>
